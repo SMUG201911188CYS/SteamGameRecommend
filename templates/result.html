@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>게임 추천 결과</title>
+</head>
+
+<body class="bg-dark text-light">
+
+    <div class="container mt-5">
+        <h1 class="text-center">게임 추천 결과</h1>
+
+        <!-- 추천된 게임 목록 -->
+        <div>
+            <h5>추천된 게임 목록:</h5>
+            <ul>
+                {% for game in recommended_games %}
+                    <li>
+                        <div class="row">
+                            <!-- 이미지 -->
+                            <div class="col-md-3">
+                                <img src="{{ game['Header image'] }}" alt="{{ game['Name'] }}" class="img-fluid">
+                            </div>
+                            <!-- 게임 정보 -->
+                            <div class="col-md-9">
+                                <p>게임 이름: {{ game['Name'] }}</p>
+                                <p>게임 설명: {{ game['About the game'] }}</p>
+                                <p>출시일: {{ game['Release date'] }}</p>
+                                <p>가격: {{ game['Price'] }}</p>
+                                <p>지원 언어: {{ game['Supported languages'] }}</p>
+                                <p>게임 스코어: {{ game['Score'] }}</p>
+                                <p><a href="https://store.steampowered.com/app/{{ game['AppID'] }}" target="_blank" class="btn btn-primary">게임 링크</a></p>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- 뒤로 가기 버튼 -->
+        <div class="mt-3">
+            <a href="/" class="btn btn-primary">뒤로 가기</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+<!-- tag_list.html -->
+
+{% for tag in tags %}
+        <form method="post" action="/select_tag">
+            <button type="submit" class="btn btn-light btn-tag">{{ tag }}</button>
+        </form>
+{% endfor %}
